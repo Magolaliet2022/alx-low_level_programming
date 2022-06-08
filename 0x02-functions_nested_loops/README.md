@@ -1,1 +1,1 @@
-readme file for 0x02, c functions, nested loops
+my readme file for 0x002 C functions, nested loops
