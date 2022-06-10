@@ -3,8 +3,8 @@
 /**
  * _isuper - evaluate if letter is uppercase .
  * @c: print int
- * Return always 0.
- */
+ * Return always 0 .
+*/
 
 int _isupper(int c)
 {
@@ -17,4 +17,5 @@ else
 {
 return (0);
 }
+
 }
