@@ -21,6 +21,7 @@ putchar(lower_case);
 }
 
 putchar('\n');
+
 return (0);
 
 }
