@@ -1,1 +1,1 @@
-readme file for the project
+ readme file for function pointers
