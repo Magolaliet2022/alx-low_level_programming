@@ -2,10 +2,11 @@
 
 /**
  * main - Entry point
- * Return; Always 0 (success/correct)
+ * Return: Always 0 (success/correct)
  */
 
 int main(void)
+
 { char i;
 
 for (i = 'z'; i >= 'a'; i--)
