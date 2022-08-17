@@ -1,1 +1,1 @@
-my readme file
+readme file for static libraries
