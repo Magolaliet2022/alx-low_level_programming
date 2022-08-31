@@ -1,35 +1,85 @@
-#include "main.h"
+#include <stdlib.h>
 
 /**
- * main - multiplies two positive numbers
- * @argc: n arguments
- * @argv: args
- * Return: int
+ * strtow - that splits a string into words
+ * @str: pointrtbmto str to bre chopped
+ * Return: char
  */
 
-int main(int argc, char *argv[])
+char **strtow(char *str)
 {
-	unsigned long mul;
-	int i, j;
+	int i = 0, j = 0, k = 0;
+	int len = 0, count = 0;
+	char **f, *col;
 
-	if (argc != 3)
+	if (!str || !*str)
 	{
-	printf("Error\n");
-	exit(98);
+		return (NULL);
 	}
-	for (i = 1; i < argc; i++)
+
+	while (*(str + i))
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
+		if (*(str + i) != ' ')
 		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
+			if (*(str + i + 1) == ' ' || *(str + i + 1) == 0)
 			{
-				printf("Error\n");
-				exit(98);
+				count += 1;
 			}
 		}
-		mul = atol(argv[1]) * atol(argv[2]);
-		printf("%lu\n", mul);
-
-		return (0);
+		i++;
 	}
-}
+
+	if (count == 0)
+	{
+		return (NULL);
+	}
+	count += 1;
+	f = malloc(sizeof(char *) * count);
+
+	if (!f)
+	{
+		return (NULL);
+	}
+	i = 0;
+
+	while (*str)
+	{
+		while (*str == ' ' && *str)
+		{
+			str++;
+		}
+		len = 0;
+
+		while (*(str + len) != ' ' && *(str + len))
+		{
+			len += 1;
+		}
+		len += 1;
+		col = malloc(sizeof(char) * len);
+
+		if (!col)
+		{
+			for (k = j - 1; k >= 0; k--)
+			{
+				free(f[k]);
+			}
+			free(f);
+			return (NULL);
+		}
+
+		for (k = 0; k < (len - 1);  k++)
+		{
+			*(col + k) = *(str++);
+		}
+		*(col + k) = '\0';
+		*(f + j) = col;
+
+		if (j < (count - 1))
+		{
+			j++;
+		}
+	}
+	*(f + j) = NULL;
+	return (f);
+} /*yes*/
+
